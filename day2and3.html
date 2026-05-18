@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hari 2 dan 3-belajar-90hari</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color: white ;
+            padding: 40px;
+        }
+        h1{
+            color: #a855f7;
+        }
+        input{
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid #a855f7;
+            background: #1a1a1a;
+            color: white;
+            font-size: 15px ;
+            margin-bottom: 16px;
+            width: 250px;
+        }
+        button{
+            background-color: #a855f7;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background-color 0.3s;
+        }
+        button:hover{
+            background-color: #7c3aed;
+        }
+        #hasil{
+            margin-top: 24px;
+            font-size: 18px;
+            background-color: #1a1a1a;
+            padding:16px 24px;
+            border-radius: 10px;
+            border: 1px solid #a855f7;
+            display: inline-block;
+            min-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>KYOKAI-hari progres checker</h1>
+    <p>kamu ada dihari ke berapa sekarang?</p>
+
+    <br>
+    <input type="number" id="inputHari" placeholder="masukan hari ke-...">
+    <br>
+    <button onclick="cekprogres()">Cek Progres</button>
+
+    <div id="hasil">hasil akan muncul disini...</div>
+
+    <script> 
+        function  cekprogres(){
+            let hari = document.getElementById("inputHari").value;
+            let pesan = "";
+            let warna = "";
+
+            if (hari >= 90){
+                pesan ="SELAMAT! kamu sudah menjadi fullstack developer!";
+                warna = "#22c55e";
+            } else if (hari >= 75){
+                pesan ="fase terakhir! deploy dan cari klien sekarang! ";
+                warna ="#22c55e";
+            } else if (hari >= 50){
+                pesan="Masuk backend! setengah lebih sudah terlewati! ";
+                warna="#a855f7";
+            }else if(hari >= 25){
+                pesan ="react time! Front end kamu makin kuat! ";
+                warna ="#a855f7";
+            }else if(hari >= 7){
+                pesan ="sudah seminggu kamu lewati ayo semangat!"
+                warna ="#a855f7";
+            }else if(hari >= 1){
+                pesan ="awal perjalanan javascript dulu,gas terus! ";
+                warna ="#a855f7";
+            }else{
+                pesan ="masukan hari yang valid ya!";
+                warna ="#ef4444";
+            }
+            document.getElementById("hasil").innerText = pesan;
+            document.getElementById("hasil").style.color = warna;
+        }
+    </script>
+</body>
+</html>
