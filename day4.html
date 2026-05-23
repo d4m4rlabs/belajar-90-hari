@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar-js-90 hari</title>
+    <style>
+    body{
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0f0f0f;
+        color: white;
+        padding: 40px;
+        }
+        h1{color: #a855f7;}
+        button{
+            background-color: #a855f7;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            margin: 8px;
+            transition: background-color 0.3s;
+        }
+        button:hover{background-color: #7c3aed;}
+        #hasil{
+            margin-top: 24px;
+            background-color: #1a1a1a;
+            padding: 16px 24px;
+            border-radius: 10px;
+            border: 1px solid #a855f7;
+            min-height: 100px;
+            text-align: left;
+        }
+</style>
+    </head>
+<body>
+    <h1>Kyoukai belajar-4</h1>
+    <p>liat kekuatan loop dsini</p>
+
+    <button onclick="forloop()">for loop</button>
+    <button onclick="whileloop()">while loop</button>
+    <button onclick="ifloop()">ifloop</button>
+    <button onclick="reset()">reset</button>
+
+    <div id="hasil">klik tombol melihat loop disini.....</div>
+    <script>
+        function forloop(){
+            let hasil ="";
+            for(let i=1;i <= 10; i++){
+                hasil += "hari ke-" + i + "dari 90 hari <br> ";
+            }
+            document.getElementById("hasil").innerHTML =hasil ;
+        }
+        function whileloop(){
+            let hasil="";
+            let angka= 10;
+            while(angka > 0){
+             hasil += "hitung mundur:" + angka + "<br>";
+                angka--;
+            }
+            hasil += "gas belajar!";
+            document.getElementById("hasil").innerHTML =hasil;
+        }
+        function ifloop(){
+            let hasil ="";
+            for(let i=1;i <=20;i++){
+                if(i % 2 === 0)
+                hasil += "angka genap" + i + "<br>";
+            }
+        document.getElementById("hasil").innerHTML =hasil;
+            }
+        function reset(){
+            document.getElementById("hasil").innerHTML ="klik tombol untuk melihat hasil loop...";
+        }
+    </script>
+</body>
+</html>
