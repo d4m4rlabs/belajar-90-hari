@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar-js-90 hari</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color:white;
+            padding: 40px;
+        }
+        h1{color:#a855f7}
+        button{
+            background-color: #a855f7;
+            color:white;
+            padding: 12px 24px;
+            border:none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            margin:8px;
+            transition: background-color 0.3s;
+        }
+        button:hover{background-color:#7c3aed;}
+        input{
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid #a855f7;
+            background-color: #1a1a1a;
+            color: white;
+            font-size: 15px;
+            margin: 8px;
+            width: 220px;
+        }
+        #hasil{
+            margin-top: 24px;
+            background-color: #1a1a1a;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #a855f7;
+            min-height: 100px;
+            text-align:left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kyoukai - Belajar array</h1>
+    <p>kelola daftar skill kamu!</p>
+
+    <input type="text" id="inputskill" placeholder="Masukkan skill baru....">
+    <br>
+    <button onclick="tambahskill()">tambah skill</button>
+    <button  onclick="hapusskill()">hapus skill</button>
+    <button onclick="tampilkansemua()">tampilkan semua</button>
+    <button onclick="cekskill()">cekskill</button>
+    <button onclick="reset()">reset</button>
+
+    <div id="hasil">Skill kamu akan muncul di sini...</div>
+
+    <script>
+        let skills = ["HTML","CSS","Javascript"];
+
+        function tampilkansemua(){
+            let hasil = "Total skill" + skills.length + "<br><br>";
+                for(let i = 0;i < skills.length; i++){
+                    hasil += "✓" + skills[i] + "<br>";
+                }
+                document.getElementById("hasil").innerHTML = hasil;
+        }
+        function tambahskill(){
+                let input = document.getElementById("inputskill").value;
+                if (input == ""){
+                    document.getElementById("hasil").innerHTML = "Masukkan nama skill dulu!";
+                    return;
+                }
+        skills.push(input);
+         document.getElementById("inputskill").value ="";
+         tampilkansemua();
+        }
+         function hapusskill(){
+            if (skills.length == 0){
+                document.getElementById("hasil").innerHTML = "tidak ada skill yang bisa di hapus!";
+                return;
+            }
+            let dihapus = skills.pop();
+            document.getElementById("hasil").innerHTML ="'" + dihapus + "'berhasil dihapus!<br><br>";
+            tampilkansemua();
+        }
+        function cekskill(){
+            let input = document.getElementById("inputskill").value;
+            if(input ==""){
+                document.getElementById("hasil").innerHTML = "Masukkan skill yang mau di cek!";
+                return;
+            }
+            if(skills.includes(input)){
+                document.getElementById("hasil").innerHTML = "✓ "  +  input  +  " ada di daftar kamu!";
+                }
+                else{
+                    document.getElementById("hasil").innerHTML = "✗"  +  input  +  " belum ada skill terdaftar !";
+                }
+        }
+         function reset(){
+            skills = ["HTML","CSS","Javascript"];
+            document.getElementById("hasil").innerHTML = "skill direset ke awal !";
+        }
+
+    </script>
+</body>
+</html>
